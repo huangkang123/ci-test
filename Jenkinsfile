@@ -12,7 +12,13 @@ pipeline{
         stage('Test') {
             steps{
                 echo 'This is a test step'
-                echo 'main'								
+                echo 'test222'								
+            }
+        }
+				stage('Test2') {
+            steps{
+                echo 'This is a test step'
+                echo 'df -h'								
             }
         }
         
