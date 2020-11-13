@@ -9,10 +9,10 @@ pipeline{
 								sh "printenv"
             }
         }
-        stage('Test') {
+        stage('check') {
             steps{
                 echo 'This is a test step'
-                echo 'test222'								
+                checkout scm								
             }
         }
 				stage('Test2') {
