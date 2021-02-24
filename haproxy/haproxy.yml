@@ -1,0 +1,61 @@
+version: '3.1'
+services: 
+  haproxy:
+    image: haproxy:latest
+    restart: always
+    volumes:
+      - /root/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    ports:
+      - 8080:8080
+      - 9188:9188
+    links:
+      - nginx1
+      - nginx2
+    depends_on:
+      - nginx1
+      - nginx2
+    deploy:
+      replicas: 1
+    networks:
+      test:
+        ipv4_address: 10.16.0.10
+  nginx1:
+    image: nginx:latest
+    restart: always
+    volumes:
+      - /root/haproxy/nginx1:/usr/share/nginx/html
+    ports:
+      - 81:80
+    deploy: 
+      replicas: 1
+    networks:
+      - test
+  nginx2:
+    image: nginx:latest
+    restart: always
+    volumes:
+      - /root/haproxy/nginx2:/usr/share/nginx/html
+    ports:
+      - 82:80
+    deploy:
+      replicas: 1
+    networks:
+      - test
+networks:
+  test:
+    ipam:
+      config:     
+        - subnet: 10.16.0.0/24 
+
+
+
+
+
+
+
+
+
+
+
+
+
