@@ -12,7 +12,8 @@ pipeline{
         stage('Test') {
             steps{
                 echo 'This is a test step'
-                echo 'master'								
+                echo 'master'
+		sh 'kubectl get node'
             }
         }
         
