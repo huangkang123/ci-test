@@ -10,12 +10,12 @@ pipeline {
     }
 
     environment {
-        DOCKER_CREDENTIAL_ID = 'dockerhub-id'
-        GITHUB_CREDENTIAL_ID = 'github-id'
-        KUBECONFIG_CREDENTIAL_ID = 'demo-kubeconfig'
-        REGISTRY = 'docker.io'
-        DOCKERHUB_NAMESPACE = 'docker_username'
-        GITHUB_ACCOUNT = 'kubesphere'
+        DOCKER_CREDENTIAL_ID = 'hub-tx'
+        GITHUB_CREDENTIAL_ID = 'argocd'
+        KUBECONFIG_CREDENTIAL_ID = 'k8s-api-config'
+        REGISTRY = 'ccr.ccs.tencentyun.com'
+        DOCKERHUB_NAMESPACE = 'docker_huang'
+        GITHUB_ACCOUNT = 'huangkang123'
         APP_NAME = 'devops-java-sample'
     }
 
@@ -61,7 +61,7 @@ pipeline {
 
         stage('deploy to dev') {
           when{
-            branch 'master'
+            branch 'main'
           }
           steps {
             input(id: 'deploy-to-dev', message: 'deploy to dev?')
