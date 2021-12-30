@@ -11,7 +11,7 @@ pipeline {
 
     environment {
         DOCKER_CREDENTIAL_ID = 'hub-tx'
-        GITHUB_CREDENTIAL_ID = 'argocd'
+        GITHUB_CREDENTIAL_ID = 'github'
         KUBECONFIG_CREDENTIAL_ID = 'k8s-api-config'
         REGISTRY = 'ccr.ccs.tencentyun.com'
         DOCKERHUB_NAMESPACE = 'docker_huang'
