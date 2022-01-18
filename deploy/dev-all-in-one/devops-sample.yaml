@@ -23,6 +23,8 @@ spec:
         component: ks-sample-dev
         tier: backend
     spec:
+      imagePullSecrets:
+      - name: txhub
       containers:
         - env:
             - name: CACHE_IGNORE
